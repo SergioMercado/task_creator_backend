@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-
 # Create your models here.
 STATUS = [
     ('TD', 'ToDo'),
@@ -20,6 +19,9 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ['id']
+
 
 class Task(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
@@ -33,6 +35,3 @@ class Task(models.Model):
 
     class Meta:
         ordering = ['id']
-    
-
-

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'django_filters',
     'task.apps.TaskConfig',
 
 ]
@@ -122,6 +123,7 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",        # new
         "rest_framework_simplejwt.authentication.JWTAuthentication",  # new
     ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }
