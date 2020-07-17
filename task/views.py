@@ -31,7 +31,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend, filters.SearchFilter]
-    filterset_fields = ['name',]
+    filterset_fields = ['name', 'project__id']
     search_fields = ['name',]
 
     def get_queryset(self):
