@@ -11,7 +11,7 @@ STATUS = [
 
 
 class Project(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=45)
     description = models.CharField(max_length=245, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -25,7 +25,7 @@ class Project(models.Model):
 
 class Task(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=45)
     description = models.CharField(max_length=245, null=True, blank=True)
     status = models.CharField(max_length=2, choices=STATUS, default='TD')
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
